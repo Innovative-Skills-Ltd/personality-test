@@ -398,6 +398,15 @@ body{
     }
 }
 @media (max-width: 576px) {
+    .progressDiv{
+        margin-bottom: 2.5rem;
+    }
+    .mcqContentMain{
+        margin: 2.5rem auto;
+    }
+    .finalDiv{
+        row-gap: 2rem;
+    }
     .footerEmail{
         font-size: 1.2rem;
     }
