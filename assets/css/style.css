@@ -401,8 +401,8 @@ body{
     .progressDiv{
         margin-bottom: 2.5rem;
     }
-    .mcqContentMain{
-        margin: 2.5rem auto;
+    .mcqContentMain, .homeContentMain{
+        margin: 2.2rem auto;
     }
     .finalDiv{
         row-gap: 2rem;
