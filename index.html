@@ -133,21 +133,30 @@
           }
   
           // Mobile Validation (Check if 10+ digits)
-          let mobilePattern = /^[0-9]{10,}$/;
+          // let mobilePattern = /^06[0-9]{8}$/;
+          
+          let mobilePattern = /^(?:\+31|0)[0-9\-+\s]{5,15}$/;
+
           if (mobileInput.value.trim() === "") {
-              mobileError.textContent = "Mobile number is required!";
+              mobileError.textContent = "Phone number is required!";
               isValid = false;
           } else if (!mobilePattern.test(mobileInput.value.trim())) {
-              mobileError.textContent = "Enter a valid mobile number!";
+              mobileError.textContent = "Enter a valid Dutch phone number!";
               isValid = false;
+          } else {
+              mobileError.textContent = ""; // Clear error message if valid
           }
+
+
+
+
+          
   
           // If valid, save data and redirect
           if (isValid) {
               let userData = {
                   name: nameInput.value,
                   email: emailInput.value,
-                  mobile: mobileInput.value
               };
   
               localStorage.setItem('mcqUser', JSON.stringify(userData));
