@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personality Test</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+
+    <!-- Custom css -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    
+  <nav class="topNav">
+    <div class="navLogo">
+      <a href="index.html" class="LogoAlter">FlexTemp</a>
+    </div>
+  </nav>
+
+    <div class="home container homeParent">
+      <div class="homeContentMain text-center">
+        <h1 class='title'>Hej der !</h1>
+        <p class='homeParagraph'>
+          Sørg venligst for at dele dit navn, før vi begynder. Du kan også dele en e-mailadresse for yderligere opdateringer.
+        </p>
+        <form class='homeForm ' id="userForm">
+          
+          <div class="input-group name">
+            <input
+              class='homeInput'
+              type="text"
+              id="nameInput" 
+              name="name"
+              placeholder='Fulde navn'
+              required
+            />
+            <span id="nameStar" class="placeholder-star">*</span>
+            <span id="nameError" style="color: red;"></span>  
+          </div>
+
+         
+          <div class="input-group mobile">
+            <input
+              class='homeInput'
+              type="tel"
+              id="mobileInput" 
+              name="mobile"
+              placeholder='Telefonnummer'
+              required
+            />
+            <span id="mobileStar" class="placeholder-star">*</span>
+            <span id="mobileError" style="color: red;"></span>
+          </div>
+
+          <div class="input-group email">
+            <input
+              class='homeInput'
+              type="email"
+              id="emailInput" 
+              name="email"
+              placeholder='E-mail'
+              required
+            />
+            <span id="emailStar" class="placeholder-star">*</span> 
+            <span id="emailError" style="color: red;"></span>
+          </div>
+
+         
+          <button type="submit" class='startButton'>Start Quiz</button>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="footerData">
+          <h6 class="footerEmail">Kontakt os: <a href="mailto: kontact@flextemp.dk">kontact@flextemp.dk</a></h6>
+          <p class="footerPara">Kontakt os, hvis der opstår en fejl, eller hvis du har nogen feedback.</p>
+        </div>
+      </div>
+    </footer>
+
+    
+    <!-- Bootstrap js -->
+    <script src="./assets/js/bootstrap.min.js"></script>
+
+    <!-- custom js -->
+     <script src="./assets/js/script.js"></script>
+
+     <script>
+      document.getElementById('userForm').addEventListener('submit', function(event) {
+          event.preventDefault(); // Prevent form submission
+  
+          // Input fields
+          let nameInput = document.getElementById('nameInput');
+          let emailInput = document.getElementById('emailInput');
+          let mobileInput = document.getElementById('mobileInput');
+  
+          // Error message fields
+          let nameError = document.getElementById('nameError');
+          let emailError = document.getElementById('emailError');
+          let mobileError = document.getElementById('mobileError');
+  
+          // Reset previous error messages
+          nameError.textContent = "";
+          emailError.textContent = "";
+          mobileError.textContent = "";
+  
+          // Validation Flag
+          let isValid = true;
+  
+          // Name Validation
+          if (nameInput.value.trim() === "") {
+              nameError.textContent = "Name is required!";
+              isValid = false;
+          }
+  
+          // Email Validation (Basic Email Format Check)
+          let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (emailInput.value.trim() === "") {
+              emailError.textContent = "Email is required!";
+              isValid = false;
+          } else if (!emailPattern.test(emailInput.value.trim())) {
+              emailError.textContent = "Enter a valid email!";
+              isValid = false;
+          }
+  
+          // Mobile Validation (Check if 10+ digits)
+          let mobilePattern = /^[0-9]{10,}$/;
+          if (mobileInput.value.trim() === "") {
+              mobileError.textContent = "Mobile number is required!";
+              isValid = false;
+          } else if (!mobilePattern.test(mobileInput.value.trim())) {
+              mobileError.textContent = "Enter a valid mobile number!";
+              isValid = false;
+          }
+  
+          // If valid, save data and redirect
+          if (isValid) {
+              let userData = {
+                  name: nameInput.value,
+                  email: emailInput.value,
+                  mobile: mobileInput.value
+              };
+  
+              localStorage.setItem('mcqUser', JSON.stringify(userData));
+  
+              // Redirect to MCQ page
+              window.location.href = 'quiz.html';
+          }
+      });
+  </script>
+  
+</body>
+</html>
