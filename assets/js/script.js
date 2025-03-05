@@ -160,6 +160,12 @@ const leftBtn = document.querySelector(".leftBtn");
 const nextButton = document.querySelector(".nextButton");
 
 // Load the current question
+// Function to save the selected answer
+function saveAnswer(index, value) {
+  answers[index] = value; // Save the selected answer
+}
+
+// Function to load the current question
 function loadQuestion(index) {
   const question = questions[index];
   mcqTitle.textContent = question.title;
@@ -181,6 +187,14 @@ function loadQuestion(index) {
       </div>
     `;
     mcqsContainer.insertAdjacentHTML("beforeend", optionHtml);
+
+    // Add event listener to the radio button
+    const radioButton = document.getElementById(optionId);
+    if (radioButton) {
+      radioButton.addEventListener("change", () => {
+        saveAnswer(index, option); // Save the answer immediately
+      });
+    }
   });
 
   // Update progress text
@@ -192,11 +206,12 @@ function loadQuestion(index) {
 
   // Show/hide left button
   leftBtn.style.display = index === 0 ? "none" : "block";
-  if(currentIndex === totalQuestions - 1){
-    nextButton.innerHTML = `Indsend <svg viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M256 120.768L306.432 64 768 512l-461.568 448L256 903.232 659.072 512z" fill="#ffffff"></path></g></svg>`
-  }
-  else{
-    nextButton.innerHTML = `Næste <svg viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M256 120.768L306.432 64 768 512l-461.568 448L256 903.232 659.072 512z" fill="#ffffff"></path></g></svg>`
+
+  // Update next button text
+  if (currentIndex === totalQuestions - 1) {
+    nextButton.innerHTML = `Indsend <svg viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M256 120.768L306.432 64 768 512l-461.568 448L256 903.232 659.072 512z" fill="#ffffff"></path></g></svg>`;
+  } else {
+    nextButton.innerHTML = `Næste <svg viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M256 120.768L306.432 64 768 512l-461.568 448L256 903.232 659.072 512z" fill="#ffffff"></path></g></svg>`;
   }
 }
 
