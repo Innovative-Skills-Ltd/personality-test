@@ -34,6 +34,19 @@ body{
 .homeContentMain .homeForm{
     margin-top: 2rem;
 }
+.input-group.mobile{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: .5rem;
+}
+#countryCode{
+    width: 5rem;
+    padding: 0.6rem .1rem;
+}
+#mobileInput{
+    width: calc(100% - 5.5rem);
+}
 .homeForm .input-group{
     position: relative;
     margin-bottom: 1rem;
@@ -48,7 +61,7 @@ body{
     left: 5.9rem;
 }
 .input-group.mobile .placeholder-star{
-    left: 8.1rem;
+    left: 13.62rem;
 }
 .input-group.email .placeholder-star{
     left: 3.8rem;
