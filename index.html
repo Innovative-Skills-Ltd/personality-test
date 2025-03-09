@@ -167,31 +167,43 @@
 });
 
 
-// Country code
-document.addEventListener("DOMContentLoaded", function () {
-        // Fetch country codes from an API
-        fetch('https://restcountries.com/v3.1/all')  // Example API, you can change this to the actual API you're using
-            .then(response => response.json())
-            .then(data => {
-                const countrySelect = document.getElementById('countryCode');
-                data.forEach(country => {
-                    if (country.cca2 && country.idd && country.idd.root) {
-                        const countryCode = country.idd.root + (country.idd.suffixes ? country.idd.suffixes[0] : '');
-                        const countryName = country.name.common;
-                        const countryFlag = country.flags[0] || '';
+  // Country code
+  document.addEventListener("DOMContentLoaded", function () {
+      // Fetch country codes from an API
+      fetch('https://restcountries.com/v3.1/all')
+          .then(response => response.json())
+          .then(data => {
+              const countrySelect = document.getElementById('countryCode');
+              
+              // Filter and map country data
+              let countries = data
+                  .filter(country => country.cca2 && country.idd && country.idd.root)
+                  .map(country => ({
+                      name: country.name.common,
+                      code: country.idd.root + (country.idd.suffixes ? country.idd.suffixes[0] : ''),
+                      flag: country.flags && country.flags.png ? country.flags.png : ''
+                  }));
 
-                        // Create a new option element for each country
-                        const option = document.createElement('option');
-                        option.value = countryCode;
-                        option.textContent = `${countryName} (${countryCode}) ${countryFlag}`;
+              // Sort countries alphabetically by name
+              countries.sort((a, b) => a.name.localeCompare(b.name));
 
-                        // Append to the select element
-                        countrySelect.appendChild(option);
-                    }
-                });
-            })
-            .catch(error => console.error('Error fetching country data:', error));
-    });
+              // Populate dropdown
+              countries.forEach(country => {
+                  const option = document.createElement('option');
+                  option.value = country.code;
+                  option.textContent = `${country.name} (${country.code})`;
+
+                  // Default select "Dutch" country
+                  if (country.name === "Netherlands") {
+                      option.selected = true;
+                  }
+
+                  countrySelect.appendChild(option);
+              });
+          })
+          .catch(error => console.error('Error fetching country data:', error));
+  });
+
   </script>
   
 </body>
