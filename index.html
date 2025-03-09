@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         // Create a new option element for each country
                         const option = document.createElement('option');
                         option.value = countryCode;
-                        option.textContent = `${countryCode}${countryFlag} (${countryName})`;
+                        option.textContent = `${countryName} (${countryCode}) ${countryFlag}`;
 
                         // Append to the select element
                         countrySelect.appendChild(option);
