@@ -43,6 +43,7 @@ body{
 #countryCode{
     width: 8rem;
     padding: 0.6rem .1rem;
+    font-size: 0.85rem;
 }
 #mobileInput{
     width: calc(100% - 8.5rem);
