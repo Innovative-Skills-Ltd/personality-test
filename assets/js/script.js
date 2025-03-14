@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
     // Function to toggle asterisk visibility
     const toggleAsteriskVisibility = (inputId, starId) => {
@@ -25,121 +24,145 @@ document.addEventListener('DOMContentLoaded', () => {
   const questions = [
     {
       title: "1. Nyder du at være spontan og holde dine muligheder åbne?",
+      "trait": "P",
       description: "Enhver beskrivelse relateret til spørgsmålene.",
       options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
     },
     {
       title: "2. Foretrækker du at tilbringe weekender stille hjemme fremfor at gå ud?",
+      "trait": "I",
       description: "Enhver beskrivelse relateret til spørgsmålene.",
       options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
     },
     {
       title: "3. Føler du dig mere energisk, når du er omgivet af mennesker?",
+      "trait": "E",
       description: "Enhver beskrivelse relateret til spørgsmålene.",
       options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
     },
     {
       title: "4. Sætter og overholder du nemt deadlines?",
+      "trait": "J",
       description: "Enhver beskrivelse relateret til spørgsmålene.",
       options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
     },
     {
       title: "5. Bliver dine beslutninger ofte påvirket af, hvordan de vil påvirke andre følelsesmæssigt?",
+      "trait": "F",
       description: "Enhver beskrivelse relateret til spørgsmålene.",
       options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
     },
     {
       title: "6. Kan du lide at diskutere symbolske eller metaforiske fortolkninger af en historie?",
+      "trait": "N",
       description: "Enhver beskrivelse relateret til spørgsmålene.",
       options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
     },
     {
       title: "7. Stræber du efter at opretholde harmoni i gruppeindstillinger, selvom det betyder kompromiser?",
+      "trait": "F",
       description: "Enhver beskrivelse relateret til spørgsmålene.",
       options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
     },
     {
       title: "8. Når en ven er ked af det, er din første instinkt at tilbyde følelsesmæssig støtte fremfor løsninger?",
+      "trait": "F",
       description: "Enhver beskrivelse relateret til spørgsmålene.",
       options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
     },
     {
       title: "9. I argumenter fokuserer du mere på at være rationel end på folks følelser?",
+      "trait": "T",
       description: "Enhver beskrivelse relateret til spørgsmålene.",
       options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
     },
     {
       title: "10. Når du lærer noget nyt, foretrækker du praktisk erfaring fremfor teori?",
+      "trait": "S",
       description: "Enhver beskrivelse relateret til spørgsmålene.",
       options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
     },
     {
       title: "11. Tænker du ofte over, hvordan handlinger i dag vil påvirke fremtiden?",
+      "trait": "N",
       description: "Enhver beskrivelse relateret til spørgsmålene.",
       options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
     },
     {
       title: "12. Er du komfortabel med at tilpasse dig nye situationer, mens de sker?",
+      "trait": "P",
       description: "Enhver beskrivelse relateret til spørgsmålene.",
       options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
     },
     {
       title: "13. Foretrækker du at udforske forskellige muligheder, før du træffer en beslutning?",
+      "trait": "P",
       description: "Enhver beskrivelse relateret til spørgsmålene.",
       options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
     },
     {
       title: "14. Til fester, starter du samtaler med nye mennesker?",
+      "trait": "E",
       description: "Enhver beskrivelse relateret til spørgsmålene.",
       options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
     },
     {
       title: "15. Når du står over for et problem, foretrækker du så at diskutere det med andre?",
+      "trait": "E",
       description: "Enhver beskrivelse relateret til spørgsmålene.",
       options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
     },
     {
       title: "16. Når du træffer beslutninger, prioriterer du logik fremfor personlige overvejelser?",
+      "trait": "T",
       description: "Enhver beskrivelse relateret til spørgsmålene.",
       options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
     },
     {
       title: "17. Finder du ofte ensomhed mere forfriskende end sociale sammenkomster?",
+      "trait": "I",
       description: "Enhver beskrivelse relateret til spørgsmålene.",
       options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
     },
     {
       title: "18. Foretrækker du at have en klar plan og ikke bryder dig om uventede ændringer?",
+      "trait": "J",
       description: "Enhver beskrivelse relateret til spørgsmålene.",
       options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
     },
     {
       title: "19. Finder du tilfredsstillelse i at færdiggøre opgaver og træffe endelige beslutninger?",
+      "trait": "J",
       description: "Enhver beskrivelse relateret til spørgsmålene.",
       options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
     },
     {
       title: "20. Har du en tendens til at bearbejde dine tanker internt, før du taler?",
+      "trait": "I",
       description: "Enhver beskrivelse relateret til spørgsmålene.",
       options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
     },
     {
       title: "21. Er du mere interesseret i at udforske abstrakte teorier og fremtidige muligheder?",
+      "trait": "N",
       description: "Enhver beskrivelse relateret til spørgsmålene.",
       options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
     },
     {
       title: "22. Når du planlægger en ferie, foretrækker du så at have en detaljeret plan?",
+      "trait": "S",
       description: "Enhver beskrivelse relateret til spørgsmålene.",
       options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
     },
     {
       title: "23. Stoler du ofte på objektive kriterier for at vurdere situationer?",
+      "trait": "T",
       description: "Enhver beskrivelse relateret til spørgsmålene.",
       options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
     },
     {
       title: "24. Fokuserer du mere på detaljer og fakta i dine omgivelser?",
+      "trait": "S",
       description: "Enhver beskrivelse relateret til spørgsmålene.",
       options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
     }
@@ -148,7 +171,11 @@ document.addEventListener('DOMContentLoaded', () => {
 // Variables to track progress
 let currentIndex = 0;
 const totalQuestions = questions.length;
-const answers = new Array(totalQuestions).fill(null); // Store user answers
+const answers = new Array(totalQuestions).fill(null).map(() => ({
+  answer: null,
+  text: '',
+  trait: ''
+}));
 
 // DOM Elements
 const progressText = document.querySelector(".progressText");
@@ -162,7 +189,9 @@ const nextButton = document.querySelector(".nextButton");
 // Load the current question
 // Function to save the selected answer
 function saveAnswer(index, value) {
-  answers[index] = value; // Save the selected answer
+  answers[index].answer = value;
+  answers[index].text = questions[index].title;
+  answers[index].trait = questions[index].trait;
 }
 
 // Function to load the current question
@@ -177,7 +206,7 @@ function loadQuestion(index) {
   // Load options
   question.options.forEach((option, i) => {
     const optionId = `mcq${index + 1}-option${i + 1}`;
-    const isChecked = answers[index] === option; // Check if this option was previously selected
+    const isChecked = answers[index].answer === option; // Check if this option was previously selected
 
     const optionHtml = `
       <div class="mcqSingle">
@@ -219,13 +248,17 @@ function loadQuestion(index) {
 nextButton.addEventListener("click", () => {
   const selectedOption = document.querySelector(`input[name="mcq${currentIndex + 1}"]:checked`);
 
+  
   if (!selectedOption) {
-    alert("Vælg venligst en indstilling før du går videre."); // Show error if no option is selected
+    alert("Vælg venligst en indstilling før du går videre.");
     return;
   }
 
   // Save the answer
-  answers[currentIndex] = selectedOption.value;
+  saveAnswer(currentIndex, selectedOption.value);
+
+  console.log(answers);
+
 
   // Move to the next question
   if (currentIndex < totalQuestions - 1) {
@@ -247,23 +280,24 @@ leftBtn.addEventListener("click", () => {
 
 // Show results at the end of the quiz
 function showResults() {
-  // Calculate results (example: count how many "Helt enig" answers)
-  const result = answers.filter((answer) => answer === "Helt enig").length;
-
-  // mcq hide
-  document.querySelector(".mcqDiv").style.display = "none";
-  // Show loading screen
-  const loadingScreen = document.querySelector(".loadingScreen");
-  loadingScreen.style.display = "block";
-
-  // Redirect to the result page after 3-4 seconds
-  setTimeout(() => {
-    // Save the result in localStorage
-    localStorage.setItem("quizResult", result);
-
-    // Redirect to the result page
-    window.location.href = "final.html"; // Replace with your result page URL
-  }, 3500); // 3 seconds delay
+  console.log(answers);
+  //here I want to add fetching a api request in post method with the answers
+  fetch("https://fastapi-personality-test.onrender.com/result", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(answers)
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      localStorage.setItem("quizAnswers", JSON.stringify(answers));
+      localStorage.setItem("quizResult", JSON.stringify(data));
+      window.location.href = "final.html";
+    })
+    .catch(error => console.error('Error:', error));
+  console.log('Fetch function working')
 }
 
 // Load the first question on page load

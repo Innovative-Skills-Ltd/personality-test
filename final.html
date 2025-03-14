@@ -35,17 +35,17 @@
                 <div class="finalTextInner">
                   <h1 class="title mb-4 mb-lg-5">Resumé</h1>
                   <div class="secondDiv">
-                    <h2 class="second_title">💡"Den Visionære"</h2>
-                    <h3 class="third_title">Den Kreative Tænker</h3>
+                    <h2 class="second_title resultTitle">💡"Den Visionære"</h2>
+                    <h3 class="third_title resultNickname">Den Kreative Tænker</h3>
                   </div>
                   <div class="thirdDiv">
-                    <p class="thirdPara">Dette kort repræsenterer personer, der ser fremtiden, før den sker. Det er de store tænkere, der altid kommer med nye ideer og unikke løsninger.</p>
-                    <ul class="thirdList">
+                    <p class="thirdPara resultDescription">Dette kort repræsenterer personer, der ser fremtiden, før den sker. Det er de store tænkere, der altid kommer med nye ideer og unikke løsninger.</p>
+                    <ul class="thirdList resultStrengths">
                       <li class="tListItem">Lyskæde-badgen symboliserer kreativitet og innovation, og udtrykker en følelse af fantasi og lederskab.</li>
-                      <li class="tListItem">Mens Visionære er fantastiske til at generere ideer, kan de have svært ved at eksekvere</li>
+                      <li class="tListItem">Mens Visionære er fantastiske til at generere ideer, kan de have svært ved at eksekvere.</li>
                       <li class="tListItem">De opfordres til at dele ideerne op i mindre, handlingsorienterede skridt for at bringe deres visioner til live.</li>
                     </ul>
-                    <p class="thirdPara mt-4 mt-lg-5">🎙 "Du tænker ikke bare uden for boksen – du redesigner hele boksen!"</p>
+                    <!-- <p class="thirdPara mt-4 mt-lg-5">🎙 "Du tænker ikke bare uden for boksen – du redesigner hele boksen!"</p> -->
                   </div>
 
                   <button class="lightBtn mt-3 mt-lg-4">Prøv igen 
@@ -55,8 +55,8 @@
             </div>
             <div class="finalCertificate">
               <div class="finalSertificateInner">
-                <h2>Den Visionære</h2>
-                <p>Du er en fremadskuende tænker, der altid ser muligheder, før andre gør det. Din kreativitet driver innovation!</p>
+                <h2 class="resultTitle">Den Visionære</h2>
+                <p class="resultSummary">Du er en fremadskuende tænker, der altid ser muligheder, før andre gør det. Din kreativitet driver innovation!</p>
               </div>
             </div>
         </div>
@@ -84,8 +84,8 @@
      <script src="./assets/js/script.js"></script>
 
      <script>
+   
       const lightBtn = document.querySelector(".lightBtn");
-
         // Add a click event listener to the button
         lightBtn.addEventListener("click", () => {
           // Clear any stored quiz data (if applicable)
@@ -94,6 +94,46 @@
           // Reload the page to reset the quiz
           window.location.href = "quiz.html";
         });
+
+      // Retrieve the quiz result from localStorage
+      const quizResult = JSON.parse(localStorage.getItem("quizResult"));
+
+      // Check if the result exists
+      if (quizResult) {
+        // Update the result title
+        const resultTitle = document.querySelector(".resultTitle");
+        if (resultTitle) {
+          resultTitle.textContent = quizResult.title || "Ingen titel tilgængelig";
+        }
+
+        // Update the result nickname
+        const resultNickname = document.querySelector(".resultNickname");
+        if (resultNickname) {
+          resultNickname.textContent = quizResult.nickname || "Ingen kaldenavn tilgængelig";
+        }
+
+        // Update the result description
+        const resultDescription = document.querySelector(".resultDescription");
+        if (resultDescription) {
+          resultDescription.textContent = quizResult.description || "Ingen beskrivelse tilgængelig";
+        }
+
+        // Update the result strengths (if it's a list)
+        const resultStrengths = document.querySelector(".resultStrengths");
+        if (resultStrengths && Array.isArray(quizResult.strengths)) {
+          resultStrengths.innerHTML = quizResult.strengths
+            .map(strength => `<li class="tListItem">${strength}</li>`)
+            .join("");
+        }
+
+        // Update the result summary
+        const resultSummary = document.querySelector(".resultSummary");
+        if (resultSummary) {
+          resultSummary.textContent = quizResult.summary || "Ingen resumé tilgængelig";
+        }
+      } else {
+        console.error("Ingen quizresultater fundet i localStorage.");
+      }
      </script>
 </body>
 </html>
