@@ -281,6 +281,13 @@ leftBtn.addEventListener("click", () => {
 // Show results at the end of the quiz
 function showResults() {
   console.log(answers);
+  // mcq hide
+  document.querySelector(".mcqDiv").style.display = "none";
+  // Show loading screen
+  const loadingScreen = document.querySelector(".loadingScreen");
+  loadingScreen.style.display = "block";
+  console.log("loadingScreen");
+
   //here I want to add fetching a api request in post method with the answers
   fetch("https://fastapi-personality-test.onrender.com/result", {
     method: "POST",
