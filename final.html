@@ -19,6 +19,103 @@
 
     <!-- Custom css -->
     <link rel="stylesheet" href="./assets/css/style.css">
+
+    <style>
+    .percentage-distribution {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+    }
+
+    .trait-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .trait-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .trait-name {
+      width: 20%;
+      font-weight: bold;
+    }
+
+    .trait-percentage-bar {
+      width: 70%;
+      background-color: #e0e0e0;
+      border-radius: 25px;
+      overflow: hidden;
+      height: 20px;
+      position: relative;
+    }
+
+    .trait-fill {
+      height: 100%;
+      background-color: #4caf50;
+      border-radius: 25px 0 0 25px;
+      transition: width 0.5s ease-in-out;
+    }
+
+    .trait-value {
+      width: 10%;
+      text-align: right;
+    }
+
+    .percentage-table-container {
+      margin: 20px auto;
+      max-width: 500px;
+      padding: 15px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+    }
+
+    .percentage-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .percentage-table tr {
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .percentage-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .percentage-table td {
+      padding: 8px 5px;
+    }
+
+    .trait-name {
+      font-weight: bold;
+      width: 40%;
+    }
+
+    .trait-bar {
+      width: 45%;
+      background-color: #e0e0e0;
+      height: 12px;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .trait-fill {
+      height: 100%;
+      background-color: #4caf50;
+      border-radius: 6px 0 0 6px;
+    }
+
+    .trait-value {
+      width: 15%;
+      text-align: right;
+      font-weight: bold;
+    }
+    </style>
 </head>
 <body>
     
@@ -61,6 +158,15 @@
             </div>
         </div>
       </div>
+    </div>
+
+    <div class="percentage-table-container">
+      <h3>Personlighedstræk Fordeling</h3>
+      <table class="percentage-table">
+        <tbody id="percentageTableBody">
+          <!-- Table rows will be added dynamically -->
+        </tbody>
+      </table>
     </div>
 
     <footer>
@@ -133,9 +239,47 @@
         resultSummaries.forEach(summary => {
           summary.textContent = quizResult.summary || "Ingen resumé tilgængelig";
         });
+
+        // Update the percentage distribution table
+        const tableBody = document.getElementById('percentageTableBody');
+        const percentageDistribution = quizResult.percentage_distribution;
+
+        for (const [trait, percentage] of Object.entries(percentageDistribution)) {
+          const row = document.createElement('tr');
+          
+          // Trait name cell
+          const nameCell = document.createElement('td');
+          nameCell.className = 'trait-name';
+          nameCell.textContent = trait;
+          
+          // Trait bar cell
+          const barCell = document.createElement('td');
+          const traitBar = document.createElement('div');
+          traitBar.className = 'trait-bar';
+          const traitFill = document.createElement('div');
+          traitFill.className = 'trait-fill';
+          traitFill.style.width = percentage + '%';
+          traitBar.appendChild(traitFill);
+          barCell.appendChild(traitBar);
+          
+          // Trait value cell
+          const valueCell = document.createElement('td');
+          valueCell.className = 'trait-value';
+          valueCell.textContent = percentage + '%';
+          
+          // Add cells to row
+          row.appendChild(nameCell);
+          row.appendChild(barCell);
+          row.appendChild(valueCell);
+          
+          // Add row to table
+          tableBody.appendChild(row);
+        }
       } else {
         console.error("Ingen quizresultater fundet i localStorage.");
       }
      </script>
+
+   
 </body>
 </html>
