@@ -100,37 +100,39 @@
 
       // Check if the result exists
       if (quizResult) {
-        // Update the result title
-        const resultTitle = document.querySelector(".resultTitle");
-        if (resultTitle) {
-          resultTitle.textContent = quizResult.title || "Ingen titel tilgængelig";
+        // Update all elements with the class "resultTitle"
+        const resultTitles = document.querySelectorAll(".resultTitle");
+        resultTitles.forEach(title => {
+          title.textContent = quizResult.title || "Ingen titel tilgængelig";
+        });
+
+        // Update all elements with the class "resultNickname"
+        const resultNicknames = document.querySelectorAll(".resultNickname");
+        resultNicknames.forEach(nickname => {
+          nickname.textContent = quizResult.nickname || "Ingen kaldenavn tilgængelig";
+        });
+
+        // Update all elements with the class "resultDescription"
+        const resultDescriptions = document.querySelectorAll(".resultDescription");
+        resultDescriptions.forEach(description => {
+          description.textContent = quizResult.description || "Ingen beskrivelse tilgængelig";
+        });
+
+        // Update all elements with the class "resultStrengths"
+        const resultStrengths = document.querySelectorAll(".resultStrengths");
+        if (quizResult.strengths && Array.isArray(quizResult.strengths)) {
+          resultStrengths.forEach(strengths => {
+            strengths.innerHTML = quizResult.strengths
+              .map(strength => `<li class="tListItem">${strength}</li>`)
+              .join("");
+          });
         }
 
-        // Update the result nickname
-        const resultNickname = document.querySelector(".resultNickname");
-        if (resultNickname) {
-          resultNickname.textContent = quizResult.nickname || "Ingen kaldenavn tilgængelig";
-        }
-
-        // Update the result description
-        const resultDescription = document.querySelector(".resultDescription");
-        if (resultDescription) {
-          resultDescription.textContent = quizResult.description || "Ingen beskrivelse tilgængelig";
-        }
-
-        // Update the result strengths (if it's a list)
-        const resultStrengths = document.querySelector(".resultStrengths");
-        if (resultStrengths && Array.isArray(quizResult.strengths)) {
-          resultStrengths.innerHTML = quizResult.strengths
-            .map(strength => `<li class="tListItem">${strength}</li>`)
-            .join("");
-        }
-
-        // Update the result summary
-        const resultSummary = document.querySelector(".resultSummary");
-        if (resultSummary) {
-          resultSummary.textContent = quizResult.summary || "Ingen resumé tilgængelig";
-        }
+        // Update all elements with the class "resultSummary"
+        const resultSummaries = document.querySelectorAll(".resultSummary");
+        resultSummaries.forEach(summary => {
+          summary.textContent = quizResult.summary || "Ingen resumé tilgængelig";
+        });
       } else {
         console.error("Ingen quizresultater fundet i localStorage.");
       }
