@@ -133,7 +133,7 @@
                   <h1 class="title mb-4 mb-lg-5">Resumé</h1>
                   <div class="secondDiv">
                     <h2 class="second_title resultTitle">💡"Den Visionære"</h2>
-                    <h3 class="third_title resultNickname">Den Kreative Tænker</h3>
+                    <h3 class="third_title resulttagline">Den Kreative Tænker</h3>
                   </div>
                   <div class="thirdDiv">
                     <p class="thirdPara resultDescription">Dette kort repræsenterer personer, der ser fremtiden, før den sker. Det er de store tænkere, der altid kommer med nye ideer og unikke løsninger.</p>
@@ -212,10 +212,10 @@
           title.textContent = quizResult.title || "Ingen titel tilgængelig";
         });
 
-        // Update all elements with the class "resultNickname"
-        const resultNicknames = document.querySelectorAll(".resultNickname");
-        resultNicknames.forEach(nickname => {
-          nickname.textContent = quizResult.nickname || "Ingen kaldenavn tilgængelig";
+        // Update all elements with the class "resulttagline"
+        const resulttaglines = document.querySelectorAll(".resulttagline");
+        resulttaglines.forEach(tagline => {
+          tagline.textContent = quizResult.tagline || "Ingen kaldenavn tilgængelig";
         });
 
         // Update all elements with the class "resultDescription"
