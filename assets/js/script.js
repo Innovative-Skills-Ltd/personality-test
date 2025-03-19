@@ -281,6 +281,16 @@ leftBtn.addEventListener("click", () => {
 // Show results at the end of the quiz
 function showResults() {
   console.log(answers);
+  const userData = JSON.parse(localStorage.getItem("mcqUser"));
+  console.log(userData);
+  const requestBody = {
+    name: userData.name,
+    email: userData.email,
+    phone: userData.phone,
+    questions: answers
+  }
+  console.log(requestBody);
+
   // mcq hide
   document.querySelector(".mcqDiv").style.display = "none";
   // Show loading screen
@@ -294,7 +304,7 @@ function showResults() {
     headers: {
         "Content-Type": "application/json"
     },
-    body: JSON.stringify(answers)
+    body: JSON.stringify(requestBody)
   })
     .then(response => response.json())
     .then(data => {
