@@ -321,3 +321,14 @@ function showResults() {
 loadQuestion(currentIndex);
 
 
+// Google translate
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'da', 
+    includedLanguages: 'en,pl,da', 
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE, 
+    autoDisplay: false, 
+    multilanguagePage: true 
+  }, 'google_translate_element');
+}
+

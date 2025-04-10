@@ -375,6 +375,31 @@ body{
     }
   }
 
+  /* Google translate */
+  .VIpgJd-ZVi9od-ORHb-OEVmcd{
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+    height: 0;
+  }
+  
+  div#google_translate_element {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: 2rem;
+}
+#google_translate_element {
+    margin: 10px 0;
+    text-align: right;
+}
+.skiptranslate {
+    position: fixed;
+    top: 1.5rem;
+    right: 2rem;
+}
+nav.topNav {
+    margin-top: -2.8rem;
+}
 /* Mobile responsive */
 @media (max-width: 992px) {
     .mcqBox{
