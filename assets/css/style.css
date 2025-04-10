@@ -397,6 +397,15 @@ body{
     top: 1.5rem;
     right: 2rem;
 }
+.translateReset{
+    position: fixed;
+    top: 1.5rem;
+    right: 11rem;
+    font-size: 0.9rem;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, .2);
+    padding: .1rem .3rem;
+}
 
 /* Mobile responsive */
 @media (max-width: 992px) {

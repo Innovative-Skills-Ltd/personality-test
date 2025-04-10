@@ -17,7 +17,10 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-  <div id="google_translate_element"></div>
+  <div class="resetAndSelect">
+    <div id="google_translate_element"></div>
+  <button class="translateReset" onclick="resetTranslation()">Reset</button>
+  </div>
   <nav class="topNav">
     <div class="navLogo">
       
@@ -207,7 +210,7 @@
   });
 
   </script>
-  <script type="text/javascript" src="translate.js"></script>
+  <script type="text/javascript" src="assets/js/script.js"></script>
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
