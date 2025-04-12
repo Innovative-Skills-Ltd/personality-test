@@ -1,181 +1,154 @@
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Function to toggle asterisk visibility
-    const toggleAsteriskVisibility = (inputId, starId) => {
-      const input = document.getElementById(inputId);
-      const star = document.getElementById(starId);
-  
-      input.addEventListener('input', () => {
-        if (input.value.trim() !== "") {
-          star.style.display = 'none'; // Hide asterisk if input has value
-        } else {
-          star.style.display = 'inline'; // Show asterisk if input is empty
-        }
-      });
-    };
-  
-    // Apply to each input field
-    toggleAsteriskVisibility('nameInput', 'nameStar');
-    toggleAsteriskVisibility('mobileInput', 'mobileStar');
-    toggleAsteriskVisibility('emailInput', 'emailStar');
-  });
-  
+  // Function to toggle asterisk visibility
+  const toggleAsteriskVisibility = (inputId, starId) => {
+    const input = document.getElementById(inputId);
+    const star = document.getElementById(starId);
+
+    input.addEventListener('input', () => {
+      if (input.value.trim() !== "") {
+        star.style.display = 'none'; // Hide asterisk if input has value
+      } else {
+        star.style.display = 'inline'; // Show asterisk if input is empty
+      }
+    });
+  };
+
+  // Apply to each input field
+  toggleAsteriskVisibility('nameInput', 'nameStar');
+  toggleAsteriskVisibility('mobileInput', 'mobileStar');
+  toggleAsteriskVisibility('emailInput', 'emailStar');
+});
 
 
-  const questions = [
-    {
-      title: "1. Nyder du at være spontan og holde dine muligheder åbne?",
-      "trait": "P",
-      description: "Enhver beskrivelse relateret til spørgsmålene.",
-      options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
-    },
-    {
-      title: "2. Foretrækker du at tilbringe weekender stille hjemme fremfor at gå ud?",
-      "trait": "I",
-      description: "Enhver beskrivelse relateret til spørgsmålene.",
-      options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
-    },
-    {
-      title: "3. Føler du dig mere energisk, når du er omgivet af mennesker?",
-      "trait": "E",
-      description: "Enhver beskrivelse relateret til spørgsmålene.",
-      options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
-    },
-    {
-      title: "4. Sætter og overholder du nemt deadlines?",
-      "trait": "J",
-      description: "Enhver beskrivelse relateret til spørgsmålene.",
-      options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
-    },
-    {
-      title: "5. Bliver dine beslutninger ofte påvirket af, hvordan de vil påvirke andre følelsesmæssigt?",
-      "trait": "F",
-      description: "Enhver beskrivelse relateret til spørgsmålene.",
-      options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
-    },
-    {
-      title: "6. Kan du lide at diskutere symbolske eller metaforiske fortolkninger af en historie?",
-      "trait": "N",
-      description: "Enhver beskrivelse relateret til spørgsmålene.",
-      options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
-    },
-    {
-      title: "7. Stræber du efter at opretholde harmoni i gruppeindstillinger, selvom det betyder kompromiser?",
-      "trait": "F",
-      description: "Enhver beskrivelse relateret til spørgsmålene.",
-      options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
-    },
-    {
-      title: "8. Når en ven er ked af det, er din første instinkt at tilbyde følelsesmæssig støtte fremfor løsninger?",
-      "trait": "F",
-      description: "Enhver beskrivelse relateret til spørgsmålene.",
-      options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
-    },
-    {
-      title: "9. I argumenter fokuserer du mere på at være rationel end på folks følelser?",
-      "trait": "T",
-      description: "Enhver beskrivelse relateret til spørgsmålene.",
-      options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
-    },
-    {
-      title: "10. Når du lærer noget nyt, foretrækker du praktisk erfaring fremfor teori?",
-      "trait": "S",
-      description: "Enhver beskrivelse relateret til spørgsmålene.",
-      options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
-    },
-    {
-      title: "11. Tænker du ofte over, hvordan handlinger i dag vil påvirke fremtiden?",
-      "trait": "N",
-      description: "Enhver beskrivelse relateret til spørgsmålene.",
-      options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
-    },
-    {
-      title: "12. Er du komfortabel med at tilpasse dig nye situationer, mens de sker?",
-      "trait": "P",
-      description: "Enhver beskrivelse relateret til spørgsmålene.",
-      options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
-    },
-    {
-      title: "13. Foretrækker du at udforske forskellige muligheder, før du træffer en beslutning?",
-      "trait": "P",
-      description: "Enhver beskrivelse relateret til spørgsmålene.",
-      options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
-    },
-    {
-      title: "14. Til fester, starter du samtaler med nye mennesker?",
-      "trait": "E",
-      description: "Enhver beskrivelse relateret til spørgsmålene.",
-      options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
-    },
-    {
-      title: "15. Når du står over for et problem, foretrækker du så at diskutere det med andre?",
-      "trait": "E",
-      description: "Enhver beskrivelse relateret til spørgsmålene.",
-      options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
-    },
-    {
-      title: "16. Når du træffer beslutninger, prioriterer du logik fremfor personlige overvejelser?",
-      "trait": "T",
-      description: "Enhver beskrivelse relateret til spørgsmålene.",
-      options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
-    },
-    {
-      title: "17. Finder du ofte ensomhed mere forfriskende end sociale sammenkomster?",
-      "trait": "I",
-      description: "Enhver beskrivelse relateret til spørgsmålene.",
-      options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
-    },
-    {
-      title: "18. Foretrækker du at have en klar plan og ikke bryder dig om uventede ændringer?",
-      "trait": "J",
-      description: "Enhver beskrivelse relateret til spørgsmålene.",
-      options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
-    },
-    {
-      title: "19. Finder du tilfredsstillelse i at færdiggøre opgaver og træffe endelige beslutninger?",
-      "trait": "J",
-      description: "Enhver beskrivelse relateret til spørgsmålene.",
-      options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
-    },
-    {
-      title: "20. Har du en tendens til at bearbejde dine tanker internt, før du taler?",
-      "trait": "I",
-      description: "Enhver beskrivelse relateret til spørgsmålene.",
-      options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
-    },
-    {
-      title: "21. Er du mere interesseret i at udforske abstrakte teorier og fremtidige muligheder?",
-      "trait": "N",
-      description: "Enhver beskrivelse relateret til spørgsmålene.",
-      options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
-    },
-    {
-      title: "22. Når du planlægger en ferie, foretrækker du så at have en detaljeret plan?",
-      "trait": "S",
-      description: "Enhver beskrivelse relateret til spørgsmålene.",
-      options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
-    },
-    {
-      title: "23. Stoler du ofte på objektive kriterier for at vurdere situationer?",
-      "trait": "T",
-      description: "Enhver beskrivelse relateret til spørgsmålene.",
-      options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
-    },
-    {
-      title: "24. Fokuserer du mere på detaljer og fakta i dine omgivelser?",
-      "trait": "S",
-      description: "Enhver beskrivelse relateret til spørgsmålene.",
-      options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
-    }
-  ];
+
+const questions = [
+  {
+    title: "1. Nyder du at være spontan og holde dine muligheder åbne?",
+    description: "Enhver beskrivelse relateret til spørgsmålene.",
+    options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
+  },
+  {
+    title: "2. Foretrækker du at tilbringe weekender stille hjemme fremfor at gå ud?",
+    description: "Enhver beskrivelse relateret til spørgsmålene.",
+    options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
+  },
+  {
+    title: "3. Føler du dig mere energisk, når du er omgivet af mennesker?",
+    description: "Enhver beskrivelse relateret til spørgsmålene.",
+    options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
+  },
+  {
+    title: "4. Sætter og overholder du nemt deadlines?",
+    description: "Enhver beskrivelse relateret til spørgsmålene.",
+    options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
+  },
+  {
+    title: "5. Bliver dine beslutninger ofte påvirket af, hvordan de vil påvirke andre følelsesmæssigt?",
+    description: "Enhver beskrivelse relateret til spørgsmålene.",
+    options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
+  },
+  {
+    title: "6. Kan du lide at diskutere symbolske eller metaforiske fortolkninger af en historie?",
+    description: "Enhver beskrivelse relateret til spørgsmålene.",
+    options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
+  },
+  {
+    title: "7. Stræber du efter at opretholde harmoni i gruppeindstillinger, selvom det betyder kompromiser?",
+    description: "Enhver beskrivelse relateret til spørgsmålene.",
+    options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
+  },
+  {
+    title: "8. Når en ven er ked af det, er din første instinkt at tilbyde følelsesmæssig støtte fremfor løsninger?",
+    description: "Enhver beskrivelse relateret til spørgsmålene.",
+    options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
+  },
+  {
+    title: "9. I argumenter fokuserer du mere på at være rationel end på folks følelser?",
+    description: "Enhver beskrivelse relateret til spørgsmålene.",
+    options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
+  },
+  {
+    title: "10. Når du lærer noget nyt, foretrækker du praktisk erfaring fremfor teori?",
+    description: "Enhver beskrivelse relateret til spørgsmålene.",
+    options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
+  },
+  {
+    title: "11. Tænker du ofte over, hvordan handlinger i dag vil påvirke fremtiden?",
+    description: "Enhver beskrivelse relateret til spørgsmålene.",
+    options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
+  },
+  {
+    title: "12. Er du komfortabel med at tilpasse dig nye situationer, mens de sker?",
+    description: "Enhver beskrivelse relateret til spørgsmålene.",
+    options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
+  },
+  {
+    title: "13. Foretrækker du at udforske forskellige muligheder, før du træffer en beslutning?",
+    description: "Enhver beskrivelse relateret til spørgsmålene.",
+    options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
+  },
+  {
+    title: "14. Til fester, starter du samtaler med nye mennesker?",
+    description: "Enhver beskrivelse relateret til spørgsmålene.",
+    options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
+  },
+  {
+    title: "15. Når du står over for et problem, foretrækker du så at diskutere det med andre?",
+    description: "Enhver beskrivelse relateret til spørgsmålene.",
+    options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
+  },
+  {
+    title: "16. Når du træffer beslutninger, prioriterer du logik fremfor personlige overvejelser?",
+    description: "Enhver beskrivelse relateret til spørgsmålene.",
+    options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
+  },
+  {
+    title: "17. Finder du ofte ensomhed mere forfriskende end sociale sammenkomster?",
+    description: "Enhver beskrivelse relateret til spørgsmålene.",
+    options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
+  },
+  {
+    title: "18. Foretrækker du at have en klar plan og ikke bryder dig om uventede ændringer?",
+    description: "Enhver beskrivelse relateret til spørgsmålene.",
+    options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
+  },
+  {
+    title: "19. Finder du tilfredsstillelse i at færdiggøre opgaver og træffe endelige beslutninger?",
+    description: "Enhver beskrivelse relateret til spørgsmålene.",
+    options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
+  },
+  {
+    title: "20. Har du en tendens til at bearbejde dine tanker internt, før du taler?",
+    description: "Enhver beskrivelse relateret til spørgsmålene.",
+    options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
+  },
+  {
+    title: "21. Er du mere interesseret i at udforske abstrakte teorier og fremtidige muligheder?",
+    description: "Enhver beskrivelse relateret til spørgsmålene.",
+    options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
+  },
+  {
+    title: "22. Når du planlægger en ferie, foretrækker du så at have en detaljeret plan?",
+    description: "Enhver beskrivelse relateret til spørgsmålene.",
+    options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
+  },
+  {
+    title: "23. Stoler du ofte på objektive kriterier for at vurdere situationer?",
+    description: "Enhver beskrivelse relateret til spørgsmålene.",
+    options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
+  },
+  {
+    title: "24. Fokuserer du mere på detaljer og fakta i dine omgivelser?",
+    description: "Enhver beskrivelse relateret til spørgsmålene.",
+    options: ["Helt enig", "Delvist enig", "Neutral / Usikker", "Delvist uenig", "Helt uenig"],
+  }
+];
 
 // Variables to track progress
 let currentIndex = 0;
 const totalQuestions = questions.length;
-const answers = new Array(totalQuestions).fill(null).map(() => ({
-  answer: null,
-  text: '',
-  trait: ''
-}));
+const answers = new Array(totalQuestions).fill(null); // Store user answers
 
 // DOM Elements
 const progressText = document.querySelector(".progressText");
@@ -189,136 +162,113 @@ const nextButton = document.querySelector(".nextButton");
 // Load the current question
 // Function to save the selected answer
 function saveAnswer(index, value) {
-  answers[index].answer = value;
-  answers[index].text = questions[index].title;
-  answers[index].trait = questions[index].trait;
+answers[index] = value; // Save the selected answer
 }
 
 // Function to load the current question
 function loadQuestion(index) {
-  const question = questions[index];
-  mcqTitle.textContent = question.title;
-  mcqParagraph.textContent = question.description;
+const question = questions[index];
+mcqTitle.textContent = question.title;
+mcqParagraph.textContent = question.description;
 
-  // Clear previous options
-  mcqsContainer.innerHTML = "";
+// Clear previous options
+mcqsContainer.innerHTML = "";
 
-  // Load options
-  question.options.forEach((option, i) => {
-    const optionId = `mcq${index + 1}-option${i + 1}`;
-    const isChecked = answers[index].answer === option; // Check if this option was previously selected
+// Load options
+question.options.forEach((option, i) => {
+  const optionId = `mcq${index + 1}-option${i + 1}`;
+  const isChecked = answers[index] === option; // Check if this option was previously selected
 
-    const optionHtml = `
-      <div class="mcqSingle">
-        <input type="radio" id="${optionId}" name="mcq${index + 1}" value="${option}" ${isChecked ? "checked" : ""}>
-        <label for="${optionId}" class="mcqName"></label>
-        <p class="mcqpara">${option}</p>
-      </div>
-    `;
-    mcqsContainer.insertAdjacentHTML("beforeend", optionHtml);
+  const optionHtml = `
+    <div class="mcqSingle">
+      <input type="radio" id="${optionId}" name="mcq${index + 1}" value="${option}" ${isChecked ? "checked" : ""}>
+      <label for="${optionId}" class="mcqName"></label>
+      <p class="mcqpara">${option}</p>
+    </div>
+  `;
+  mcqsContainer.insertAdjacentHTML("beforeend", optionHtml);
 
-    // Add event listener to the radio button
-    const radioButton = document.getElementById(optionId);
-    if (radioButton) {
-      radioButton.addEventListener("change", () => {
-        saveAnswer(index, option); // Save the answer immediately
-      });
-    }
-  });
-
-  // Update progress text
-  progressText.innerHTML = `Spørgsmål <span>${index + 1}</span> of <span>${totalQuestions}</span>`;
-
-  // Update progress bar
-  const progressWidth = ((index + 1) / totalQuestions) * 100;
-  progressActive.style.width = `${progressWidth}%`;
-
-  // Show/hide left button
-  leftBtn.style.display = index === 0 ? "none" : "block";
-
-  // Update next button text
-  if (currentIndex === totalQuestions - 1) {
-    nextButton.innerHTML = `Indsend <svg viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M256 120.768L306.432 64 768 512l-461.568 448L256 903.232 659.072 512z" fill="#ffffff"></path></g></svg>`;
-  } else {
-    nextButton.innerHTML = `Næste <svg viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M256 120.768L306.432 64 768 512l-461.568 448L256 903.232 659.072 512z" fill="#ffffff"></path></g></svg>`;
+  // Add event listener to the radio button
+  const radioButton = document.getElementById(optionId);
+  if (radioButton) {
+    radioButton.addEventListener("change", () => {
+      saveAnswer(index, option); // Save the answer immediately
+    });
   }
+});
+
+// Update progress text
+progressText.innerHTML = `Spørgsmål <span>${index + 1}</span> of <span>${totalQuestions}</span>`;
+
+// Update progress bar
+const progressWidth = ((index + 1) / totalQuestions) * 100;
+progressActive.style.width = `${progressWidth}%`;
+
+// Show/hide left button
+leftBtn.style.display = index === 0 ? "none" : "block";
+
+// Update next button text
+if (currentIndex === totalQuestions - 1) {
+  nextButton.innerHTML = `Indsend <svg viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M256 120.768L306.432 64 768 512l-461.568 448L256 903.232 659.072 512z" fill="#ffffff"></path></g></svg>`;
+} else {
+  nextButton.innerHTML = `Næste <svg viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M256 120.768L306.432 64 768 512l-461.568 448L256 903.232 659.072 512z" fill="#ffffff"></path></g></svg>`;
+}
 }
 
 // Handle next button click
 nextButton.addEventListener("click", () => {
-  const selectedOption = document.querySelector(`input[name="mcq${currentIndex + 1}"]:checked`);
+const selectedOption = document.querySelector(`input[name="mcq${currentIndex + 1}"]:checked`);
 
-  
-  if (!selectedOption) {
-    alert("Vælg venligst en indstilling før du går videre.");
-    return;
-  }
+if (!selectedOption) {
+  alert("Vælg venligst en indstilling før du går videre."); // Show error if no option is selected
+  return;
+}
 
-  // Save the answer
-  saveAnswer(currentIndex, selectedOption.value);
+// Save the answer
+answers[currentIndex] = selectedOption.value;
 
-  console.log(answers);
-
-
-  // Move to the next question
-  if (currentIndex < totalQuestions - 1) {
-    currentIndex++;
-    loadQuestion(currentIndex);
-  } else {
-    // Quiz completed, show results
-    showResults();
-  }
+// Move to the next question
+if (currentIndex < totalQuestions - 1) {
+  currentIndex++;
+  loadQuestion(currentIndex);
+} else {
+  // Quiz completed, show results
+  showResults();
+}
 });
 
 // Handle left button click
 leftBtn.addEventListener("click", () => {
-  if (currentIndex > 0) {
-    currentIndex--;
-    loadQuestion(currentIndex);
-  }
+if (currentIndex > 0) {
+  currentIndex--;
+  loadQuestion(currentIndex);
+}
 });
 
 // Show results at the end of the quiz
 function showResults() {
-  console.log(answers);
-  const userData = JSON.parse(localStorage.getItem("mcqUser"));
-  console.log(userData);
-  const requestBody = {
-    name: userData.name,
-    email: userData.email,
-    phone: userData.phone,
-    questions: answers
-  }
-  console.log(requestBody);
+// Calculate results (example: count how many "Helt enig" answers)
+const result = answers.filter((answer) => answer === "Helt enig").length;
 
-  // mcq hide
-  document.querySelector(".mcqDiv").style.display = "none";
-  // Show loading screen
-  const loadingScreen = document.querySelector(".loadingScreen");
-  loadingScreen.style.display = "block";
-  console.log("loadingScreen");
+// mcq hide
+document.querySelector(".mcqDiv").style.display = "none";
+// Show loading screen
+const loadingScreen = document.querySelector(".loadingScreen");
+loadingScreen.style.display = "block";
 
-  //here I want to add fetching a api request in post method with the answers
-  fetch("http://69.62.115.82:8000/result", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify(requestBody)
-  })
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      localStorage.setItem("quizAnswers", JSON.stringify(answers));
-      localStorage.setItem("quizResult", JSON.stringify(data));
-      window.location.href = "/static/final.html";
-    })
-    .catch(error => console.error('Error:', error));
-  console.log('Fetch function working')
+// Redirect to the result page after 3-4 seconds
+setTimeout(() => {
+  // Save the result in localStorage
+  localStorage.setItem("quizResult", result);
+
+  // Redirect to the result page
+  window.location.href = "final.html"; // Replace with your result page URL
+}, 3500); // 3 seconds delay
 }
 
 // Load the first question on page load
 loadQuestion(currentIndex);
+
 
 // Google Translate API integration
 function googleTranslateElementInit() {
@@ -360,3 +310,85 @@ function resetTranslation() {
   window.location.reload();
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  // Function to calculate placeholder width and position asterisk
+  const positionAsterisks = () => {
+    // Input fields with placeholders and stars
+    const inputFields = [
+      { inputId: 'nameInput', starId: 'nameStar' },
+      { inputId: 'mobileInput', starId: 'mobileStar' },
+      { inputId: 'emailInput', starId: 'emailStar' }
+    ];
+
+    // Create a temporary span to measure text width
+    const tempSpan = document.createElement('span');
+    tempSpan.style.visibility = 'hidden';
+    tempSpan.style.whiteSpace = 'nowrap';
+    tempSpan.style.position = 'absolute';
+    document.body.appendChild(tempSpan);
+
+    inputFields.forEach(field => {
+      const input = document.getElementById(field.inputId);
+      const star = document.getElementById(field.starId);
+      
+      if (input && star) {
+        // Get placeholder text
+        const placeholderText = input.getAttribute('placeholder') || '';
+        
+        // Measure placeholder width
+        tempSpan.textContent = placeholderText;
+        tempSpan.style.font = window.getComputedStyle(input).font;
+        const placeholderWidth = tempSpan.offsetWidth;
+        
+        // Position the asterisk (add some padding)
+        star.style.left = `${placeholderWidth + 8}px`;
+      }
+    });
+
+    // Remove the temporary span
+    document.body.removeChild(tempSpan);
+  };
+
+  // Initial positioning
+  positionAsterisks();
+
+  // Re-position when window resizes (in case fonts change)
+  window.addEventListener('resize', positionAsterisks);
+
+  // Toggle asterisk visibility based on input (your existing code)
+  const toggleAsteriskVisibility = (inputId, starId) => {
+    const input = document.getElementById(inputId);
+    const star = document.getElementById(starId);
+
+    input.addEventListener('input', () => {
+      if (input.value.trim() !== "") {
+        star.style.display = 'none';
+      } else {
+        star.style.display = 'inline';
+      }
+    });
+  };
+
+  // Apply to each input field
+  toggleAsteriskVisibility('nameInput', 'nameStar');
+  toggleAsteriskVisibility('mobileInput', 'mobileStar');
+  toggleAsteriskVisibility('emailInput', 'emailStar');
+});
+
+// Wait for the page to load
+// window.addEventListener('load', function() {
+//   // Get the elements
+//   const gadgetSimple = document.querySelector('.goog-te-gadget-simple');
+//   const translateReset = document.querySelector('.translateReset');
+  
+//   if (gadgetSimple && translateReset) {
+//     // Get the width of .goog-te-gadget-simple
+//     const gadgetWidth = gadgetSimple.offsetWidth;
+    
+//     // Calculate the new right position (original + 30px)
+//     const newRightPosition = gadgetWidth + 30;
+    
+//     // Apply the new right position to .translateReset
+//     translateReset.style.right = `${newRightPosition}px`;
+//   }
+// });

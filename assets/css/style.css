@@ -247,7 +247,7 @@ body{
     max-width: 10rem;
     margin-left: 3rem;
     margin-right: auto;
-    line-height: 25px;
+    line-height: 30px;
 }
 .finalSertificateInner p{
     font-family: "Geologica", sans-serif;
@@ -374,6 +374,7 @@ body{
       width: 100%;
     }
   }
+
   /* Google translate */
   .VIpgJd-ZVi9od-ORHb-OEVmcd{
     visibility: hidden;
@@ -399,14 +400,19 @@ body{
 .translateReset{
     position: fixed;
     top: 1.5rem;
-    right: 11rem;
+    right: 13rem;
     font-size: 0.9rem;
     background: transparent;
     border: 1px solid rgba(0, 0, 0, .2);
     padding: .1rem .3rem;
-    cursor: pointer;
 }
-
+.goog-te-gadget-simple{
+    width: 10.5rem;
+    text-align: center;
+}
+nav.topNav {
+    margin-top: -3.15rem;
+}
 /* Mobile responsive */
 @media (max-width: 992px) {
     .mcqBox{
@@ -435,6 +441,11 @@ body{
     }
 }
 @media (max-width: 768px) {
+    
+    .navLogo{
+        text-align: left;
+        padding-left: 1rem;
+    }
     .mcqSingle{
         width: 33.33%;
     }
@@ -468,6 +479,15 @@ body{
     }
 }
 @media (max-width: 480px) {
+    .skiptranslate{
+        right: 1rem;
+    }
+    .translateReset{
+        right: 12rem;
+    }
+    .navLogo{
+        padding-left: 0;
+    }
     .mcqSingle{
         width: 50%;
     }
@@ -479,6 +499,18 @@ body{
     }
 }
 @media (max-width: 414px) {
+    .goog-te-gadget-simple{
+        width: 9.5rem;
+    }
+    .translateReset{
+        right: 10.5rem;
+    }
+    .LogoAlter{
+        padding: 0.5rem;
+    }
+    .skiptranslate{
+        right: .5rem;
+    }
     .mcqBox.generate{
         padding: 2rem 1rem;
     }
