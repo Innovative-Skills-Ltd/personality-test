@@ -423,6 +423,13 @@ body{
     line-height: 1.5rem;
     text-align: center;
 }
+div#goog-gt-tt {
+    display: none !important;
+}
+.VIpgJd-yAWNEb-VIpgJd-fmcmS-sn54Q{
+   background: transparent !important;
+   box-shadow: none !important;
+}
 /* nav.topNav {
     margin-top: -3.15rem;
 } */
