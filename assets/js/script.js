@@ -310,6 +310,8 @@ function resetTranslation() {
   window.location.reload();
 }
 
+
+// placehohder widht mesurement
 document.addEventListener('DOMContentLoaded', () => {
   // Function to calculate placeholder width and position asterisk
   const positionAsterisks = () => {
