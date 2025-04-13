@@ -394,20 +394,32 @@ body{
 }
 .skiptranslate {
     position: fixed;
-    top: 1.5rem;
-    right: 2rem;
+    top: 0;
+    right: 0;
 }
 .translateReset{
     position: fixed;
-    top: 1.5rem;
-    right: 13rem;
+    top: 0rem;
+    right: 11rem;
     font-size: 0.9rem;
     background: transparent;
     border: 1px solid rgba(0, 0, 0, .2);
     padding: .1rem .3rem;
+    background: #ffffff;
 }
 .goog-te-gadget-simple{
     width: 10.5rem;
+    text-align: center;
+}
+.introduction{
+    max-width: 90vw;
+    margin: 2.5rem auto -3rem auto;
+}
+.introData{
+    color: #334155;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
     text-align: center;
 }
 /* nav.topNav {
@@ -442,10 +454,10 @@ body{
 }
 @media (max-width: 768px) {
     
-    .navLogo{
+    /* .navLogo{
         text-align: left;
         padding-left: 1rem;
-    }
+    } */
     .mcqSingle{
         width: 33.33%;
     }
@@ -458,6 +470,9 @@ body{
     }
 }
 @media (max-width: 576px) {
+    .navLogo{
+        margin-top: 1rem;
+    }
     .progressDiv{
         margin-bottom: 2.5rem;
     }
@@ -479,15 +494,19 @@ body{
     }
 }
 @media (max-width: 480px) {
-    .skiptranslate{
+    .introduction{
+        max-width: 95vw;
+        margin-top: 2rem;
+    }
+    /* .skiptranslate{
         right: 1rem;
-    }
-    .translateReset{
+    } */
+    /* .translateReset{
         right: 12rem;
-    }
-    .navLogo{
+    } */
+    /* .navLogo{
         padding-left: 0;
-    }
+    } */
     .mcqSingle{
         width: 50%;
     }
@@ -497,20 +516,21 @@ body{
     .mcqBox.generate{
         padding: 2rem;
     }
+    
 }
 @media (max-width: 414px) {
-    .goog-te-gadget-simple{
+    /* .goog-te-gadget-simple{
         width: 9.5rem;
     }
     .translateReset{
         right: 10.5rem;
-    }
+    } */
     .LogoAlter{
         padding: 0.5rem;
     }
-    .skiptranslate{
+    /* .skiptranslate{
         right: .5rem;
-    }
+    } */
     .mcqBox.generate{
         padding: 2rem 1rem;
     }
